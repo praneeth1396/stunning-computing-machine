@@ -17,17 +17,17 @@ var appRouter = function(app){
              while(i<result.rows.length){
                if(req.body['username']==result.rows[i].rollno){
                   if(req.body['password']==result.rows[i].password){
-                        json = JSON.stringify({"name":result.rows[i].name,"status":"100"}));
+                        json = JSON.stringify({"name":result.rows[i].name,"status":"100"});
                         i++;
                         break;
                   }
                   else{
-                       json = (JSON.stringify({"status":"50"}));
+                       json = JSON.stringify({"status":"50"});
                        i++;
                   }
                }
                else{
-                    json = JSON.stringify({"status":"0"}));
+                    json = JSON.stringify({"status":"0"});
                     i++;
                }
              }

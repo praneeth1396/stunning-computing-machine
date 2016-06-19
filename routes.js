@@ -3,7 +3,7 @@ var appRouter = function(app){
        app.get('/',function(req,res){
                 console.log("Hey");
                 res.write("Hey");
-                
+                console.log(req);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM softies2k14', function(err, result) {
 

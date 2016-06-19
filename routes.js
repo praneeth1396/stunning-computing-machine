@@ -4,6 +4,7 @@ var appRouter = function(app){
                 console.log("Hey");
                 res.write("Hey");
                 console.log(req.body['username']);
+
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     client.query('SELECT * FROM softies2k14', function(err, result) {
          if (err){
@@ -14,12 +15,20 @@ var appRouter = function(app){
            else{
              var i = 0;
               while(i<result.rows.length){
-                      if(result.rows[i].rollno == req.body['username']){
-                                  res.write("Hey gowri");
+                      if(result.rows[i].rollno == req.body['username'] && result.rows[i].password == req.body['password']){
+                                  res.write(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
+                                  console.log(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
+                                  i++;
+                      }
+                      else if(result.rows[i].password != req.body['password']){
+                                  res.write(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
+                                  console.log(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
                                   i++;
                       }
                       else{
-                          i++;
+                                  res.write(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
+                                  console.log(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
+                                  i++;
                       }
               }
               res.write("Found :)");

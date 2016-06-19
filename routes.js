@@ -1,6 +1,6 @@
 var pg = require('pg');
 var appRouter = function(app){
-       app.post('/',function(req,res){}
+       app.post('/',function(req,res){
                 console.log("Hey");
                 console.log(req.body['username']);
 

@@ -7,7 +7,7 @@ var appRouter = function(app){
     client.query('SELECT * FROM softies2k14', function(err, result) {
          done();
          if (err){
-            res.send(err);
+            res.send("hey world");
           }
            else{
               res.end(result);

@@ -13,9 +13,9 @@ var appRouter = function(app){
           }
            else{
              var i = 0;
-                   console.log(result.rows.rollno);
+              console.log(req.rows['rollno']);
               console.log("Found :)");
-
+              res.end();
            }
 
            });

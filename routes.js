@@ -1,5 +1,5 @@
 var appRouter = function(app){
-       app.get('/',function(req,res){
+       app.get('/listuser',function(req,res){
                   res.send("Hey there!");
        });
 }

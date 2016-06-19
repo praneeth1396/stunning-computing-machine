@@ -2,7 +2,7 @@ var pg = require('pg');
 var appRouter = function(app){
        app.post('/',function(req,res){
                 console.log("Hey");
-                res.writeHead(200, {"Content-Type": "application/json"});
+                
                 console.log(req.body['username']);
 
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {

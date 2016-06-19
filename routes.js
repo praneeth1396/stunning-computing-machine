@@ -1,6 +1,6 @@
 var pg = require('pg');
 var appRouter = function(app){
-       app.post('/',function(req,res){
+       app.post('/',function(req,res){}
                 console.log("Hey");
                 console.log(req.body['username']);
 
@@ -23,6 +23,7 @@ var appRouter = function(app){
                   }
                   else{
                        json = JSON.stringify({"status":"50"});
+                       break;
                        i++;
                   }
                }

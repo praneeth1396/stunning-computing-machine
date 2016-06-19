@@ -16,6 +16,7 @@ var appRouter = function(app){
               while(i<result.rows.length){
                       if(result.rows[i].rollno == req.body['username']){
                                   res.write("Hey gowri");
+                                  i++;
                       }
                       else{
                           i++;

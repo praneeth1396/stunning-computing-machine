@@ -19,7 +19,7 @@ var appRouter = function(app){
                                   console.log(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
                                   i++;
                       }
-                      else if(result.rows[i].rollno == req.body['username' && result.rows[i].password != req.body['password']){
+                      else if(result.rows[i].rollno == req.body['username'] && result.rows[i].password != req.body['password']){
                                   res.end(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
                                   console.log(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
                                   i++;

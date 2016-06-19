@@ -2,7 +2,7 @@ var pg = require('pg');
 var appRouter = function(app){
        app.post('/',function(req,res){
                 console.log("Hey");
-                
+
                 console.log(req.body['username']);
 
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -16,17 +16,17 @@ var appRouter = function(app){
              var i = 0;
               while(i<result.rows.length){
                       if(result.rows[i].rollno == req.body['username'] && result.rows[i].password == req.body['password']){
-                                  res.json(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
+                                  res.send(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
                                   console.log(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
                                   i++;
                       }
                       else if(result.rows[i].password != req.body['password']){
-                                  res.json(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
+                                  res.send(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
                                   console.log(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
                                   i++;
                       }
                       else{
-                                  res.json(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
+                                  res.send(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
                                   console.log(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
                                   i++;
                       }

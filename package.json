@@ -3,7 +3,7 @@
   "description": "Our sample Node to Heroku app",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "server.js"
   },
   "dependencies": {
     "ejs": "~1.0.0",

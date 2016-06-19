@@ -1,7 +1,7 @@
 var pg = require('pg');
 var appRouter = function(app){
        app.post('/',function(req,res){
-                console.log("Hey");
+
                 console.log(req.body['username']);
 
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -32,7 +32,6 @@ var appRouter = function(app){
                     i++;
                }
              }
-              console.log("Found :)");
              res.end(json);
            }
 

@@ -16,25 +16,25 @@ var appRouter = function(app){
              while(i<result.rows.length){
                if(req.body['username']==result.rows[i].rollno){
                   if(req.body['password']==result.rows[i].password){
-                        res.end(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
+                        res.write(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
                         console.log(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
                         i++;
                         break;
                   }
                   else{
-                       res.end(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
+                       res.write(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
                        console.log(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
                        i++;
                   }
                }
                else{
-                 res.end(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
+                 res.write(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
                  console.log(JSON.stringify({"name":result.rows[i].name,"status":"0"}));
                  i++;
                }
              }
               console.log("Found :)");
-              
+             res.end();
            }
 
            });

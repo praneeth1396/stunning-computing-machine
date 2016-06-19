@@ -2,7 +2,7 @@ var pg = require('pg');
 var appRouter = function(app){
        app.post('/',function(req,res){
                 console.log("Hey");
-                res.write("Hey");
+                res.writeHead(200, {"Content-Type": "application/json"});
                 console.log(req.body['username']);
 
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
@@ -22,7 +22,7 @@ var appRouter = function(app){
                       }
                       else if(result.rows[i].password != req.body['password']){
                                   res.write(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
-                                  console.log(JSON.stringify({"name":result.rows[i].name,"status":"100"}));
+                                  console.log(JSON.stringify({"name":result.rows[i].name,"status":"50"}));
                                   i++;
                       }
                       else{
@@ -31,7 +31,7 @@ var appRouter = function(app){
                                   i++;
                       }
               }
-              res.write("Found :)");
+              
               console.log("Found :)");
               res.end();
            }

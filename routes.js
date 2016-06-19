@@ -12,7 +12,7 @@ var appRouter = function(app){
             res.end();
           }
            else{
-              res.write(result.rows[0] +" found");
+              res.write(result.rows[0].rollno +" found");
               console.log("found");
               res.end();
            }

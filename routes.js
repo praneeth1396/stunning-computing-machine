@@ -1,6 +1,12 @@
 var pg = require('pg');
 var appRouter = function(app){
-       app.post('/',function(req,res){
+  app.post('/sign-up',function(req,res){
+        pg.connect(process.env.DATABASE_URL,function(err,client,done){
+                console.log("welcome to sign-up page");
+                done();     
+        });
+  });
+       app.post('/login',function(req,res){
                 console.log(req.body);
     pg.connect(process.env.DATABASE_URL, function(err, client, done) {
         client.query('SELECT * FROM softies2k14', function(err, result) {

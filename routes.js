@@ -12,7 +12,7 @@ var appRouter = function(app){
                          res.end();
                       }
                       else{
-                         console.log("hey world");
+                         console.log(result.rows);
                          res.send(result.rows);
                          res.end();
                       }

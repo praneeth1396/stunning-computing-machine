@@ -13,7 +13,7 @@ var appRouter = function(app){
                       }
                       else{
                          console.log(result.rows);
-                         var dept_list = JSON.stringify({"data":result.rows});
+                         var dept_list = JSON.stringify({"dept_list":result.rows});
                          res.end(dept_list);
                       }
                 });

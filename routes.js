@@ -3,7 +3,7 @@ var appRouter = function(app){
   var dept;
   var course;
   var sem;
-  app.post('/list-dept',function(req,res){
+  app.get('/list-dept',function(req,res){
         pg.connect(process.env.DATABASE_URL,function(err,client,done){
                 client.query('SELECT * from Department',function(err,result){
                       if(err){

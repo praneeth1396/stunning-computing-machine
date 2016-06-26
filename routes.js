@@ -1,8 +1,10 @@
 var pg = require('pg');
 var appRouter = function(app){
-  app.post('/sign-up',function(req,res){
+  var dept;
+  var course;
+  var sem;
+  app.post('/list-dept',function(req,res){
         pg.connect(process.env.DATABASE_URL,function(err,client,done){
-                console.log("welcome to sign-up page");
                 client.query('SELECT * from Department',function(err,result){
                       if(err){
                          res.write("Error !");
@@ -10,7 +12,6 @@ var appRouter = function(app){
                          res.end();
                       }
                       else{
-                         var i = 0;
                          console.log(result);
                          res.end(result);
                       }
@@ -18,10 +19,28 @@ var appRouter = function(app){
                 done();
         });
   });
-       app.post('/login',function(req,res){
+  app.post('/list-course',function(req,res){
+       pg.connect(process.env.DATABASE_URL,function(err,client,done){
+                client.query('SELECT * from Course',function(err,result){
+                       if(err){
+                         res.write("Error !");
+                         console.log("Error !");
+                         res.end();
+                       }
+                       else{
+                         console.log(result);
+                         res.end(result);
+                       }
+
+                });
+                 done();
+       });
+  });
+
+  app.post('/login',function(req,res){
                 console.log(req.body);
-    pg.connect(process.env.DATABASE_URL, function(err, client, done) {
-        client.query('SELECT * FROM softies2k14', function(err, result) {
+        pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+              client.query('SELECT * FROM softies2k14', function(err, result) {
          if (err){
             res.write("Error ! :(");
             console.log("Error ! :(");

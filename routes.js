@@ -3,7 +3,19 @@ var appRouter = function(app){
   app.post('/sign-up',function(req,res){
         pg.connect(process.env.DATABASE_URL,function(err,client,done){
                 console.log("welcome to sign-up page");
-                done();     
+                client.query('SELECT * from Department',function(err,result){
+                      if(err){
+                         res.write("Error !");
+                         console.log("Error !");
+                         res.end();
+                      }
+                      else{
+                         var i = 0;
+                         console.log(result);
+                         res.end(result);
+                      }
+                });
+                done();
         });
   });
        app.post('/login',function(req,res){

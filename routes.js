@@ -12,9 +12,9 @@ var appRouter = function(app){
                          res.end();
                       }
                       else{
-
-                         console.log("hey" + result.rows);
-                         res.end(result);
+                         console.log("hey world");
+                         res.send(result.rows);
+                         res.end();
                       }
                 });
                 done();

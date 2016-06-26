@@ -12,9 +12,9 @@ var appRouter = function(app){
                          res.end();
                       }
                       else{
-                         console.log(result.rows);
                          var dept_list = JSON.stringify({"dept_list":result.rows});
                          res.end(dept_list);
+                         console.log(dept_list);
                       }
                 });
                 done();

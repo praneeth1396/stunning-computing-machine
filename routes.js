@@ -12,7 +12,8 @@ var appRouter = function(app){
                          res.end();
                       }
                       else{
-                         console.log(result);
+
+                         console.log("hey" + result);
                          res.end(result);
                       }
                 });

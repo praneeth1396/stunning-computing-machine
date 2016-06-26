@@ -13,7 +13,7 @@ var appRouter = function(app){
                       }
                       else{
 
-                         console.log("hey" + result);
+                         console.log("hey" + result.rows);
                          res.end(result);
                       }
                 });

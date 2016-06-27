@@ -29,15 +29,15 @@ var appRouter = function(app){
                          res.end();
                        }
                        else{
-                         console.log(result);
-                         res.end(result);
+                         console.log(req.body);
+                         console.log(result.rows);
+                         res.end(result.rows);
                        }
 
                 });
                  done();
        });
   });
-
   app.post('/login',function(req,res){
                 console.log(req.body);
         pg.connect(process.env.DATABASE_URL, function(err, client, done) {

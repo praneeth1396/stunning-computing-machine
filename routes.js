@@ -21,6 +21,8 @@ var appRouter = function(app){
         });
   });
   app.post('/list-course',function(req,res){
+    console.log(req.body['dept_id']);
+    dept = req.body['dept_id'];
        pg.connect(process.env.DATABASE_URL,function(err,client,done){
                 client.query('SELECT * from Course',function(err,result){
                        if(err){

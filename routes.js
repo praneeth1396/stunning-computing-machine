@@ -32,8 +32,9 @@ var appRouter = function(app){
                        }
                        else{
                          console.log(req.body);
-                         console.log(result.rows);
-                         res.end(result.rows);
+                         var course_list = JSON.stringify({"course_list":result.rows});
+                         res.end(course_list);
+                         console.log(course_list);
                        }
 
                 });

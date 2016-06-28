@@ -26,7 +26,6 @@ var appRouter = function(app){
        pg.connect(process.env.DATABASE_URL,function(err,client,done){
           client.query("SELECT course_id from dept_course where dept_id = "+dept,function(err,result){
                       if(err){
-                        res.write(err);
                         res.end();
                       }
                       else{

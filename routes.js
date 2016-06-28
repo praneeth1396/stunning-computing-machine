@@ -44,9 +44,9 @@ var appRouter = function(app){
                                          res.end();
                                        }
                                        else{
-                                         var course_list = JSON.stringify({"course_list":result.rows});
-                                         res.end(course_list);
-                                         console.log(course_list);
+                                         console.log(result.rows);
+                                         res.end(result.rows);
+
                                        }
                           });
                           i = i + 1;

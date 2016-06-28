@@ -51,7 +51,7 @@ var appRouter = function(app){
                           });
                           i = i + 1;
                         }
-                        var jsonarr = JSON.stringify("courses":array);
+                        var jsonarr = JSON.stringify({"courses":array});
                         console.log(jsonarr);
                         res.end();
                       }

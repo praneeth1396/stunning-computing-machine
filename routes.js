@@ -47,13 +47,14 @@ var appRouter = function(app){
                                        else{
                                          array.push(JSON.parse(JSON.stringify(result.rows[0])));
                                          console.log(JSON.stringify(result.rows[0]));
-
+                                         res.write(JSON.parse(JSON.stringify(result.rows[0])));
                                        }
                           });
                           i = i + 1;
                         }
-                        res.send(array);
+                        res.end();
                       }
+
           });
                  done();
        });

@@ -52,9 +52,7 @@ var appRouter = function(app){
                           });
                           i = i + 1;
                         }
-                        res.end(array);
-
-                      }
+                        res.send(array);
           });
                  done();
        });

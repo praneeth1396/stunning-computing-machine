@@ -32,7 +32,7 @@ var appRouter = function(app){
                         res.end();
                       }
                       else{
-                        var courses = JSON.parse(result.rows[0]);
+                        var courses = JSON.parse(JSON.stringify(result.rows[0]));
                         console.log(courses);
                           client.query('SELECT * from Course',function(err,result){
                                        if(err){

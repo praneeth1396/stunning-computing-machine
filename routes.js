@@ -22,9 +22,10 @@ var appRouter = function(app){
   });
   app.post('/list-course',function(req,res){
     console.log(req.body['deptid']);
-
+    dept = req.body['deptid'].toString();
+    console.log(dept.isChar());
        pg.connect(process.env.DATABASE_URL,function(err,client,done){
-          client.query("SELECT course_id from dept_course where dept_id = "+dept,function(err,result){
+          client.query("SELECT course_id from dept_course",function(err,result){
                       if(err){
                         res.end();
                       }

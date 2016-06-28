@@ -53,6 +53,7 @@ var appRouter = function(app){
                           i = i + 1;
                         }
                         res.send(array);
+                        res.end();
           });
                  done();
        });

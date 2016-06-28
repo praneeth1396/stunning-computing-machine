@@ -47,11 +47,12 @@ var appRouter = function(app){
                                        else{
                                          array.push(JSON.stringify(result.rows[0]));
                                          console.log(JSON.stringify(result.rows[0]));
-                                         res.end();
+
                                        }
                           });
                           i = i + 1;
                         }
+                        res.end();
                         console.log(array);
                       }
           });

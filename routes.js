@@ -44,7 +44,7 @@ var appRouter = function(app){
                                          res.end();
                                        }
                                        else{
-                                         console.log(result.rows[0]);
+                                         console.log(JSON.stringify(result.rows));
                                          res.end();
                                        }
                           });

@@ -27,7 +27,6 @@ var appRouter = function(app){
           client.query("SELECT course_id from dept_course where dept_id = "+dept,function(err,result){
                       if(err){
                         res.write(err);
-                        console.log("Error !");
                         res.end();
                       }
                       else{

@@ -33,7 +33,7 @@ var appRouter = function(app){
                       }
                       else{
                         console.log(result.rows);
-                        var course = result.course_id;
+                        var course = result.course_list;
                         console.log(course);
                         var i = 0;
 

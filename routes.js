@@ -21,6 +21,7 @@ var appRouter = function(app){
         });
   });
   app.post('/list-course',function(req,res){
+
     console.log(req.body['deptid']);
     dept = req.body['deptid'];
 
@@ -32,21 +33,25 @@ var appRouter = function(app){
                       }
                       else{
                         console.log(result.rows);
-                        console.log("hey world");
+                        var course = result.rows['course_list'];
+                        console.log(course);
+                        var i = 0;
+
+                          client.query('SELECT * from Course',function(err,result){
+                                       if(err){
+                                         res.write("Error !");
+                                         console.log("Error !");
+                                         res.end();
+                                       }
+                                       else{
+                                         var course_list = JSON.stringify({"course_list":result.rows});
+                                         res.end(course_list);
+                                         console.log(course_list);
+                                       }
+                          });
+                        
                       }
           });
-          client.query('SELECT * from Course',function(err,result){
-                       if(err){
-                         res.write("Error !");
-                         console.log("Error !");
-                         res.end();
-                       }
-                       else{
-                         var course_list = JSON.stringify({"course_list":result.rows});
-                         res.end(course_list);
-                         console.log(course_list);
-                       }
-                });
                  done();
        });
   });

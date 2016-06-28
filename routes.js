@@ -33,10 +33,7 @@ var appRouter = function(app){
                       }
                       else{
                         console.log(result.rows);
-                        var course = result.course_list;
-                        console.log(course);
-                        var i = 0;
-
+              
                           client.query('SELECT * from Course',function(err,result){
                                        if(err){
                                          res.write("Error !");

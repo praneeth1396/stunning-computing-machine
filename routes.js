@@ -33,7 +33,7 @@ var appRouter = function(app){
                       }
                       else{
                         var courses = JSON.stringify(result.rows[0]);
-                        console.log(courses);
+                        console.log(courses[0]);
                           client.query('SELECT * from Course',function(err,result){
                                        if(err){
                                          res.write("Error !");

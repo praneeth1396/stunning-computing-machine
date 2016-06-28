@@ -32,6 +32,7 @@ var appRouter = function(app){
                       }
                       else{
                         console.log(result.rows);
+                        console.log("hey world");
                       }
           });
           client.query('SELECT * from Course',function(err,result){

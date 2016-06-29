@@ -104,4 +104,3 @@ var appRouter = function(app){
        });
 }
 module.exports = appRouter;
-SELECT * from Dept_Course as dc INNER JOIN COURSE AS c ON dc.course_id = c.course_id where dc.dept_id = 1;

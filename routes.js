@@ -20,7 +20,8 @@ var appRouter = function(app){
                 done();
         });
   });
-  app.post('/list-course',function(req,res){
+
+  /*app.post('/list-course',function(req,res){
 
     console.log(req.body['deptid']);
     dept = req.body['deptid'];
@@ -63,6 +64,7 @@ var appRouter = function(app){
                  done();
        });
   });
+  */
   app.post('/login',function(req,res){
                 console.log(req.body);
         pg.connect(process.env.DATABASE_URL, function(err, client, done) {

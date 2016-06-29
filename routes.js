@@ -60,7 +60,7 @@ var appRouter = function(app){
                  done();
        });
   });
-  app.post('/login',function(req,res){
+  app.post('/',function(req,res){
                 console.log(req.body);
         pg.connect(process.env.DATABASE_URL, function(err, client, done) {
               client.query('SELECT * FROM softies2k14', function(err, result) {

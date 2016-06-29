@@ -33,7 +33,7 @@ var appRouter = function(app){
                       }
                       else{
                         console.log(result.rows);
-                        res.end();
+                        res.end(JSON.stringify({"course_list":result.rows}));
                         /*var courses = JSON.parse(JSON.stringify(result.rows[0]));
                         var i =0;
                         console.log(courses['course_id'].length);

@@ -49,7 +49,7 @@ var appRouter = function(app){
       var sem = req.body['stud_sem'];
 
       pg.connect(process.env.DATABASE_URL,function(err,client,done){
-           client.query('INSERT INTO student_details values('+rollno+','+sem+','+passwd+','+course+','+dept+','+sem+')',function(err,result){
+           client.query('INSERT INTO student_details values('+rollno+','+name+','+passwd+','+course+','+dept+','+sem+')',function(err,result){
                        if(err){
                          console.log("error!");
                          res.end("error!");

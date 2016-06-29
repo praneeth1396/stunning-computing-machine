@@ -39,7 +39,7 @@ var appRouter = function(app){
        });
   });
 
-  app.post('/sign-up',function(req,res){
+  app.post('/signup',function(req,res){
       console.log("hey");
       res.end("hey there");
   });

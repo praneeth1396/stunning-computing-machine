@@ -24,7 +24,6 @@ var appRouter = function(app){
 
     console.log(req.body['deptid']);
     dept = req.body['deptid'];
-
        pg.connect(process.env.DATABASE_URL,function(err,client,done){
           client.query("SELECT course_id,course_name from course where dept_id = '"+dept+"'",function(err,result){
                       if(err){
@@ -34,38 +33,17 @@ var appRouter = function(app){
                       else{
                         console.log(result.rows);
                         res.end(JSON.stringify({"course_list":result.rows}));
-                        /*var courses = JSON.parse(JSON.stringify(result.rows[0]));
-                        var i =0;
-                        console.log(courses['course_id'].length);
-                        for(i;i<courses['course_id'].length;i++){
-                          var id = courses['course_id'][i];
-                          var array = new Array();
-                          client.query("SELECT * from Course where course_id = '"+id+"'",function(err,result){
-                                       if(err){
-                                         res.write("Error !");
-                                         console.log("Error !");
-                                         res.end();
-                                       }
-                                       else{
-                                         array.push(JSON.parse(JSON.stringify(result.rows[0])));
-                                         console.log(JSON.stringify(result.rows[0]));
-                                         var jsonarr = JSON.stringify({"courses":array});
-                                         console.log(jsonarr);
-                                        // if(i == courses['course_id'].length-1)
-                                             res.end(jsonarr);
-                                       }
-                          });
-
-                        }
-                        */
-
                       }
-
           });
                  done();
        });
   });
-  app.post('/',function(req,res){
+
+  app.post('/sign-up',function(req,res){
+      console.log("hey");
+      res.end("hey there");
+  });
+  app.post('/login',function(req,res){
                 console.log(req.body);
         pg.connect(process.env.DATABASE_URL, function(err, client, done) {
               client.query('SELECT * FROM softies2k14', function(err, result) {

@@ -49,7 +49,7 @@ var appRouter = function(app){
                                          console.log(JSON.stringify(result.rows[0]));
                                          var jsonarr = JSON.stringify({"courses":array});
                                          console.log(jsonarr);
-                                         if(i == courses['course_id'].length-1)
+                                        // if(i == courses['course_id'].length-1)
                                              res.end(jsonarr);
                                        }
                           });

@@ -41,7 +41,9 @@ var appRouter = function(app){
 
   app.post('/signup',function(req,res){
       console.log(req.body);
-      res.end("hey there");
+      var name = JSON.parse(req.body['stud_name']);
+      console.log(name);
+      res.end(name);
   });
   app.post('/login',function(req,res){
                 console.log(req.body);

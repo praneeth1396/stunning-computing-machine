@@ -42,8 +42,24 @@ var appRouter = function(app){
   app.post('/signup',function(req,res){
       console.log(req.body);
       var name = req.body['stud_name'];
-      console.log(name);
-      res.end(name);
+      var rollno = req.body['stud_rollno'];
+      var passwd = req.body['stud_passwd'];
+      var course = req.body['stud_course'];
+      var dept = req.body['stud_dept'];
+      var sem = req.body['stud_sem'];
+
+      pg.connect(process.env.DATABASE_URL,function(err,client,done){
+           client.query('INSERT INTO student_details values('+rollno+','+sem+','+passwd+','+course+','+dept+','+sem+)'',function(err,result){
+                       if(err){
+                         console.log("error!");
+                         res.end("error!");
+                       }
+                       else{
+                         res.end(JSON.stringify({"status":200}));
+                       }
+           });
+      });
+      
   });
   app.post('/login',function(req,res){
                 console.log(req.body);

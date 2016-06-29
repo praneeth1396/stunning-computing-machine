@@ -47,13 +47,15 @@ var appRouter = function(app){
                                        else{
                                          array.push(JSON.parse(JSON.stringify(result.rows[0])));
                                          console.log(JSON.stringify(result.rows[0]));
+                                         var jsonarr = JSON.stringify({"courses":array});
+                                         console.log(jsonarr);
+                                         if( i == (courses['course_id'].length-1))
+                                         res.end(jsonarr);
                                        }
                           });
                           i = i + 1;
                         }
-                        var jsonarr = JSON.stringify({"courses":array});
-                        console.log(jsonarr);
-                        res.end();
+
                       }
 
           });

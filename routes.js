@@ -20,7 +20,6 @@ var appRouter = function(app){
                 done();
         });
   });
-
   app.post('/list-course',function(req,res){
 
     console.log(req.body['deptid']);
@@ -34,13 +33,10 @@ var appRouter = function(app){
                       }
                       else{
                         var courses = JSON.parse(JSON.stringify(result.rows[0]));
-                        console.log(courses);
                         var i = 0;
                         console.log(courses['course_id'].length);
-                        //while(i<courses['course_id'].length){
-                        //  console.log(i);
-                          var id = 'pw';
-
+                        while(i<courses['course_id'].length){
+                          var id = courses['course_id'][i];
                           var array = new Array();
                           client.query("SELECT * from Course where course_id = '"+id+"'",function(err,result){
                                        if(err){
@@ -51,24 +47,19 @@ var appRouter = function(app){
                                        else{
                                          array.push(JSON.parse(JSON.stringify(result.rows[0])));
                                          console.log(JSON.stringify(result.rows[0]));
-                                         var jsonarr = JSON.stringify({"courses":array});
-                                         console.log(jsonarr);
-                                         if(i == (courses['course_id'].length-1))
-                                             res.end(array);
                                        }
                           });
-
-                          //i = i + 1;
-                        //}
-
-
+                          i = i + 1;
+                        }
+                        var jsonarr = JSON.stringify({"courses":array});
+                        console.log(jsonarr);
+                        res.end();
                       }
 
           });
                  done();
        });
   });
-
   app.post('/login',function(req,res){
                 console.log(req.body);
         pg.connect(process.env.DATABASE_URL, function(err, client, done) {

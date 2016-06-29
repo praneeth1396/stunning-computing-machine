@@ -35,7 +35,7 @@ var appRouter = function(app){
                         var courses = JSON.parse(JSON.stringify(result.rows[0]));
                         var i = 0;
                         console.log(courses['course_id'].length);
-                        while(i<courses['course_id'].length){
+
                           var id = courses['course_id'][i];
                           var array = new Array();
                           client.query("SELECT * from Course where course_id = '"+id+"'",function(err,result){
@@ -54,7 +54,7 @@ var appRouter = function(app){
                                        }
                           });
                           i = i + 1;
-                        }
+                      
 
                       }
 

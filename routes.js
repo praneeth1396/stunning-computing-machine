@@ -40,7 +40,7 @@ var appRouter = function(app){
   });
 
   app.post('/signup',function(req,res){
-      console.log("hey");
+      console.log(req.body);
       res.end("hey there");
   });
   app.post('/login',function(req,res){

@@ -34,6 +34,7 @@ var appRouter = function(app){
                       }
                       else{
                         var courses = JSON.parse(JSON.stringify(result.rows[0]));
+                        console.log(courses);
                         var i = 0;
                         console.log(courses['course_id'].length);
                         while(i<courses['course_id'].length){

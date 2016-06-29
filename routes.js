@@ -32,7 +32,9 @@ var appRouter = function(app){
                         res.end();
                       }
                       else{
-                        var courses = JSON.parse(JSON.stringify(result.rows[0]));
+                        console.log(result.rows);
+                        res.end();
+                        /*var courses = JSON.parse(JSON.stringify(result.rows[0]));
                         var i =0;
                         console.log(courses['course_id'].length);
                         for(i;i<courses['course_id'].length;i++){
@@ -55,6 +57,7 @@ var appRouter = function(app){
                           });
 
                         }
+                        */
 
                       }
 
@@ -101,3 +104,4 @@ var appRouter = function(app){
        });
 }
 module.exports = appRouter;
+SELECT * from Dept_Course as dc INNER JOIN COURSE AS c ON dc.course_id = c.course_id where dc.dept_id = 1;
